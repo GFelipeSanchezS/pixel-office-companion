@@ -1,0 +1,72 @@
+[
+  {
+    "delay_ms": 500,
+    "event": {
+      "version": "1.0",
+      "id": "00000000-0000-0000-0000-000000001001",
+      "timestamp": "2026-02-03T10:15:30.123Z",
+      "type": "activity.typing",
+      "payload": { "intensity": "medium" }
+    }
+  },
+  {
+    "delay_ms": 800,
+    "event": {
+      "version": "1.0",
+      "id": "00000000-0000-0000-0000-000000001002",
+      "timestamp": "2026-02-03T10:15:31.000Z",
+      "type": "activity.idle",
+      "payload": { "duration_ms": 1500 }
+    }
+  },
+  {
+    "delay_ms": 600,
+    "event": {
+      "version": "1.0",
+      "id": "00000000-0000-0000-0000-000000001003",
+      "timestamp": "2026-02-03T10:15:32.200Z",
+      "type": "ai.request.start",
+      "payload": { "provider": "cursor", "kind": "chat" }
+    }
+  },
+  {
+    "delay_ms": 400,
+    "event": {
+      "version": "1.0",
+      "id": "00000000-0000-0000-0000-000000001004",
+      "timestamp": "2026-02-03T10:15:32.800Z",
+      "type": "ai.request.stream",
+      "payload": {}
+    }
+  },
+  {
+    "delay_ms": 700,
+    "event": {
+      "version": "1.0",
+      "id": "00000000-0000-0000-0000-000000001005",
+      "timestamp": "2026-02-03T10:15:33.500Z",
+      "type": "ai.request.end",
+      "payload": { "outcome": "success" }
+    }
+  },
+  {
+    "delay_ms": 900,
+    "event": {
+      "version": "1.0",
+      "id": "00000000-0000-0000-0000-000000001006",
+      "timestamp": "2026-02-03T10:15:34.200Z",
+      "type": "outcome.test_pass",
+      "payload": {}
+    }
+  },
+  {
+    "delay_ms": 900,
+    "event": {
+      "version": "1.0",
+      "id": "00000000-0000-0000-0000-000000001007",
+      "timestamp": "2026-02-03T10:15:35.100Z",
+      "type": "outcome.test_fail",
+      "payload": {}
+    }
+  }
+]

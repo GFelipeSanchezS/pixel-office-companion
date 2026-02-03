@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/renderer/renderer.gd" id=1]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [{
+"frames": [],
+"loop": true,
+"name": "idle",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": "typing",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": "thinking",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": false,
+"name": "success",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": false,
+"name": "error",
+"speed": 6.0
+}]
+
+[node name="OfficeScene" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 0)
+
+[node name="Character" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource( 1 )
+texture_filter = 1
+position = Vector2(0, 0)

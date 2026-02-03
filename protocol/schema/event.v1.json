@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/protocol/event.v1.json",
+  "title": "Event v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "id", "timestamp", "type", "payload"],
+  "properties": {
+    "version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "type": {
+      "enum": [
+        "activity.typing",
+        "activity.idle",
+        "ai.request.start",
+        "ai.request.stream",
+        "ai.request.end",
+        "outcome.test_pass",
+        "outcome.test_fail"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "type": { "const": "activity.typing" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["intensity"],
+          "properties": {
+            "intensity": { "enum": ["low", "medium", "high"] }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "activity.idle" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["duration_ms"],
+          "properties": {
+            "duration_ms": { "type": "number" }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "ai.request.start" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["provider", "kind"],
+          "properties": {
+            "provider": { "type": "string" },
+            "kind": { "type": "string" }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "ai.request.stream" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "ai.request.end" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["outcome"],
+          "properties": {
+            "outcome": { "enum": ["success", "error"] }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "outcome.test_pass" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "outcome.test_fail" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

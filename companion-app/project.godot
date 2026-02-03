@@ -1,0 +1,8 @@
+; Engine configuration file.
+; It's best to edit this file using the editor.
+
+config_version=5
+
+[application]
+config/name="companion-app"
+run/main_script="res://src/main.gd"
