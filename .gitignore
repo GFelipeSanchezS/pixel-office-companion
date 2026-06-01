@@ -1,0 +1,20 @@
+# TypeScript build outputs
+editor-extension/out/
+tools/mock-event-server/dist/
+
+# Dependencies
+editor-extension/node_modules/
+tools/mock-event-server/node_modules/
+
+# Godot 4.x generated files
+companion-app/.godot/
+companion-app/**/*.import
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+*.swp
+*.swo
