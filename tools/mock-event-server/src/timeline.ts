@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import { resolve } from "path";
 import Ajv from "ajv/dist/2020";
+import addFormats from "ajv-formats";
 
 type TimelineEntry = {
   delay_ms: number;
@@ -21,6 +22,7 @@ export function loadTimeline(): Timeline {
   }
 
   const ajv = new Ajv({ allErrors: true, strict: true });
+  addFormats(ajv);
   const validate = ajv.compile(schema);
 
   for (const entry of timeline) {
