@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "id": "00000000-0000-0000-0000-000000000115",
+  "timestamp": "2026-02-03T10:15:30.123Z",
+  "type": "editor.file.delete",
+  "payload": {
+    "files": ["old_feature.ts"]
+  }
+}

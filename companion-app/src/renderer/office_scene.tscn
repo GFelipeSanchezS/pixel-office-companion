@@ -28,6 +28,51 @@ animations = [{
 "loop": false,
 "name": "error",
 "speed": 6.0
+}, {
+"frames": [],
+"loop": false,
+"name": "falling_asleep",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": "sleeping",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": "debugging",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": "running",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": false,
+"name": "terminal",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": false,
+"name": "file_switch",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": false,
+"name": "file_create",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": false,
+"name": "file_delete",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": false,
+"name": "file_rename",
+"speed": 6.0
 }]
 
 [node name="OfficeScene" type="Node2D"]
@@ -37,7 +82,28 @@ script = ExtResource( 1 )
 texture_filter = 1
 position = Vector2(0, 0)
 
-[node name="Character" type="AnimatedSprite2D" parent="."]
+[node name="Worker1" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource( 1 )
 texture_filter = 1
-position = Vector2(0, 0)
+position = Vector2(90, 65)
+
+[node name="Worker2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource( 1 )
+texture_filter = 1
+position = Vector2(300, 65)
+
+[node name="Worker3" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource( 1 )
+texture_filter = 1
+position = Vector2(90, 200)
+
+[node name="Worker4" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource( 1 )
+texture_filter = 1
+position = Vector2(390, 200)
+
+[node name="RushWorker" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource( 1 )
+texture_filter = 1
+position = Vector2(240, 135)
+visible = false

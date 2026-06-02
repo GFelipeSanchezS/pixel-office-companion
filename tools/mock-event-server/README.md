@@ -35,10 +35,24 @@ Events are scripted in `src/timelines/basic.json` as an ordered array of entries
 ]
 ```
 
-- `delay_ms` — how long to wait before emitting this entry (relative to the previous one)
+- `delay_ms` — how long to wait before emitting this entry, relative to the previous one
 - `event` — a complete, valid protocol v1 event
 
-The timeline loops continuously. Every event is validated against `protocol/schema/event.v1.json`
-at startup; the server refuses to start if any entry is invalid.
+The timeline loops continuously. Every event is validated against
+`protocol/schema/event.v1.json` at startup; the server refuses to start if any
+entry is invalid.
 
-All emitted events are semantic and conform to protocol v1.
+The default timeline (`basic.json`) covers all 18 protocol v1 event types in a
+single loop, exercising every state in the companion app.
+
+## Adding or modifying events
+
+Edit `src/timelines/basic.json`, then rebuild:
+
+```bash
+npm run build
+npm start
+```
+
+Events that fail schema validation at startup produce an error message that
+identifies which entry is invalid and why.
