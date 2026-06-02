@@ -1,5 +1,7 @@
 extends Node
 
+const States = preload("res://src/state/states.gd")
+
 signal state_changed(new_state: String)
 
 var current_state: String = States.IDLE
