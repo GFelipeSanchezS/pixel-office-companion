@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 import { resolve } from "path";
-import Ajv from "ajv";
+import Ajv from "ajv/dist/2020";
 
 type TimelineEntry = {
   delay_ms: number;
