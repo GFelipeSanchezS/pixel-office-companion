@@ -112,3 +112,5 @@ companion-app/           Godot 4.x application
 ## Status
 
 MVP foundation complete. Visuals and animation in progress.
+
+See [KNOWN_LIMITATIONS.md](KNOWN_LIMITATIONS.md) for deliberate compromises and deferred features.

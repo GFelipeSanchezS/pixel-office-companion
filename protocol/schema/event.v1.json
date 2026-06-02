@@ -21,11 +21,22 @@
       "enum": [
         "activity.typing",
         "activity.idle",
+        "activity.focus",
+        "activity.away",
         "ai.request.start",
         "ai.request.stream",
         "ai.request.end",
+        "debug.session.start",
+        "debug.session.end",
+        "debug.session.step",
+        "editor.file.switch",
+        "editor.file.create",
+        "editor.file.delete",
+        "editor.file.rename",
         "outcome.test_pass",
-        "outcome.test_fail"
+        "outcome.test_fail",
+        "task.process.start",
+        "terminal.command.end"
       ]
     },
     "payload": {
@@ -61,6 +72,18 @@
     },
     {
       "properties": {
+        "type": { "const": "activity.focus" },
+        "payload": { "type": "object", "additionalProperties": false }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "activity.away" },
+        "payload": { "type": "object", "additionalProperties": false }
+      }
+    },
+    {
+      "properties": {
         "type": { "const": "ai.request.start" },
         "payload": {
           "type": "object",
@@ -76,10 +99,7 @@
     {
       "properties": {
         "type": { "const": "ai.request.stream" },
-        "payload": {
-          "type": "object",
-          "additionalProperties": false
-        }
+        "payload": { "type": "object", "additionalProperties": false }
       }
     },
     {
@@ -97,19 +117,117 @@
     },
     {
       "properties": {
-        "type": { "const": "outcome.test_pass" },
+        "type": { "const": "debug.session.start" },
         "payload": {
           "type": "object",
-          "additionalProperties": false
+          "additionalProperties": false,
+          "required": ["debuggerType"],
+          "properties": {
+            "debuggerType": { "type": "string" }
+          }
         }
       }
     },
     {
       "properties": {
-        "type": { "const": "outcome.test_fail" },
+        "type": { "const": "debug.session.end" },
+        "payload": { "type": "object", "additionalProperties": false }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "debug.session.step" },
+        "payload": { "type": "object", "additionalProperties": false }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "editor.file.switch" },
         "payload": {
           "type": "object",
-          "additionalProperties": false
+          "additionalProperties": false,
+          "required": ["fileName"],
+          "properties": {
+            "fileName": { "type": "string" }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "editor.file.create" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["files"],
+          "properties": {
+            "files": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "editor.file.delete" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["files"],
+          "properties": {
+            "files": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "editor.file.rename" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["oldName", "newName"],
+          "properties": {
+            "oldName": { "type": "string" },
+            "newName": { "type": "string" }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "outcome.test_pass" },
+        "payload": { "type": "object", "additionalProperties": false }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "outcome.test_fail" },
+        "payload": { "type": "object", "additionalProperties": false }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "task.process.start" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["taskName"],
+          "properties": {
+            "taskName": { "type": "string" }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": { "const": "terminal.command.end" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["exitCode"],
+          "properties": {
+            "exitCode": { "type": ["number", "null"] }
+          }
         }
       }
     }

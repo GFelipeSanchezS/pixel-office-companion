@@ -9,39 +9,24 @@ export function registerAiSensor(emit: EmitRaw): vscode.Disposable {
 
   if (chat?.onDidStartChatRequest) {
     disposables.push(
-      chat.onDidStartChatRequest((e: any) => {
-        const payload: { requestId?: string } = {};
-        const requestId = e?.requestId ?? e?.id;
-        if (typeof requestId === "string") {
-          payload.requestId = requestId;
-        }
-        emit({ type: "ai.request.start", payload });
+      chat.onDidStartChatRequest((_e: any) => {
+        emit({ type: "ai.request.start", payload: { provider: "vscode", kind: "chat" } });
       })
     );
   }
 
   if (chat?.onDidReceiveChatResponse) {
     disposables.push(
-      chat.onDidReceiveChatResponse((e: any) => {
-        const payload: { requestId?: string; chunkLength?: number } = {};
-        const requestId = e?.requestId ?? e?.id;
-        if (typeof requestId === "string") {
-          payload.requestId = requestId;
-        }
-        emit({ type: "ai.request.stream", payload });
+      chat.onDidReceiveChatResponse((_e: any) => {
+        emit({ type: "ai.request.stream", payload: {} });
       })
     );
   }
 
   if (chat?.onDidEndChatRequest) {
     disposables.push(
-      chat.onDidEndChatRequest((e: any) => {
-        const payload: { requestId?: string } = {};
-        const requestId = e?.requestId ?? e?.id;
-        if (typeof requestId === "string") {
-          payload.requestId = requestId;
-        }
-        emit({ type: "ai.request.end", payload });
+      chat.onDidEndChatRequest((_e: any) => {
+        emit({ type: "ai.request.end", payload: { outcome: "success" } });
       })
     );
   }

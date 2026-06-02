@@ -21,7 +21,7 @@ export function registerTypingSensor(
   };
 
   const onChange = vscode.workspace.onDidChangeTextDocument(() => {
-    emit({ type: "activity.typing", payload: {} });
+    emit({ type: "activity.typing", payload: { intensity: "medium" } });
     resetIdleTimer();
   });
 

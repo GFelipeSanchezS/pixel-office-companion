@@ -3,27 +3,42 @@ export const EVENT_VERSION = "1.0" as const;
 export type EventType =
   | "activity.typing"
   | "activity.idle"
+  | "activity.focus"
+  | "activity.away"
   | "ai.request.start"
   | "ai.request.stream"
   | "ai.request.end"
+  | "debug.session.start"
+  | "debug.session.end"
+  | "debug.session.step"
+  | "editor.file.switch"
+  | "editor.file.create"
+  | "editor.file.delete"
+  | "editor.file.rename"
   | "outcome.test_pass"
-  | "outcome.test_fail";
+  | "outcome.test_fail"
+  | "task.process.start"
+  | "terminal.command.end";
 
 export type EventPayloads = {
-  // activity.typing: minimal payload, no fields required
-  "activity.typing": Record<string, never>;
-  // activity.idle: idle duration in milliseconds
+  "activity.typing": { intensity: "low" | "medium" | "high" };
   "activity.idle": { duration_ms: number };
-  // ai.request.start: optional request identifier if provided by the host
-  "ai.request.start": { requestId?: string };
-  // ai.request.stream: optional request identifier and chunk length in chars
-  "ai.request.stream": { requestId?: string };
-  // ai.request.end: optional request identifier if provided by the host
-  "ai.request.end": { requestId?: string };
-  // outcome.test_pass: exit code from a test task (0)
+  "activity.focus": Record<string, never>;
+  "activity.away": Record<string, never>;
+  "ai.request.start": { provider: string; kind: string };
+  "ai.request.stream": Record<string, never>;
+  "ai.request.end": { outcome: "success" | "error" };
+  "debug.session.start": { debuggerType: string };
+  "debug.session.end": Record<string, never>;
+  "debug.session.step": Record<string, never>;
+  "editor.file.switch": { fileName: string };
+  "editor.file.create": { files: string[] };
+  "editor.file.delete": { files: string[] };
+  "editor.file.rename": { oldName: string; newName: string };
   "outcome.test_pass": Record<string, never>;
-  // outcome.test_fail: exit code from a test task (non-zero or undefined)
   "outcome.test_fail": Record<string, never>;
+  "task.process.start": { taskName: string };
+  "terminal.command.end": { exitCode: number | null };
 };
 
 export type RawEvent<T extends EventType = EventType> = {

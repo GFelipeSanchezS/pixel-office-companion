@@ -84,7 +84,7 @@ State decay timings: Typing 2s, Thinking 10s, Success 3s, Error 5s.
 
 ## Key Constraints
 
-- The editor extension must never have UI, settings, analytics, or bidirectional communication.
+- The editor extension must never have a custom UI (webviews, panels, status bar items). Standard VS Code contribution settings (`contributes.configuration` in `package.json`) are allowed and are the only configuration surface. No analytics or bidirectional communication.
 - The companion app must never request data from the editor — all flow is push-only from extension to app.
 - Protocol v1 is immutable; new versions require a new schema file and versioned handling in both extension and app.
 - The extension connects to `ws://localhost:8787`; the mock server listens on the same address.

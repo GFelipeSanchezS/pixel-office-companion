@@ -17,12 +17,55 @@
     "compile": "tsc",
     "vscode:prepublish": "npm run compile"
   },
+  "contributes": {
+    "configuration": {
+      "title": "Pixel Office Companion",
+      "properties": {
+        "pixelOfficeCompanion.sensors.typing": {
+          "type": "boolean",
+          "default": true,
+          "description": "Emit events when you type or go idle in the editor."
+        },
+        "pixelOfficeCompanion.sensors.ai": {
+          "type": "boolean",
+          "default": true,
+          "description": "Emit events when an AI chat request starts, streams, or ends."
+        },
+        "pixelOfficeCompanion.sensors.tests": {
+          "type": "boolean",
+          "default": true,
+          "description": "Emit events when a test task starts or finishes."
+        },
+        "pixelOfficeCompanion.sensors.debug": {
+          "type": "boolean",
+          "default": true,
+          "description": "Emit events when a debug session starts, ends, or steps."
+        },
+        "pixelOfficeCompanion.sensors.window": {
+          "type": "boolean",
+          "default": true,
+          "description": "Emit events when the editor window gains or loses focus, or when the active file changes."
+        },
+        "pixelOfficeCompanion.sensors.files": {
+          "type": "boolean",
+          "default": true,
+          "description": "Emit events when files are created, deleted, or renamed."
+        },
+        "pixelOfficeCompanion.sensors.terminal": {
+          "type": "boolean",
+          "default": true,
+          "description": "Emit events when a terminal shell command finishes. Requires shell integration to be active."
+        }
+      }
+    }
+  },
   "dependencies": {
     "ws": "^8.18.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
     "@types/vscode": "^1.80.0",
+    "@types/ws": "^8.18.1",
     "typescript": "^5.4.0"
   }
 }
