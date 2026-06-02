@@ -5,4 +5,4 @@ config_version=5
 
 [application]
 config/name="companion-app"
-run/main_script="res://src/main.gd"
+run/main_scene="res://src/main.tscn"

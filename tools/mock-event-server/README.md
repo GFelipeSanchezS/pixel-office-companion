@@ -6,11 +6,15 @@ Emits protocol v1 semantic events over WebSocket for development and testing.
 Replaces the editor extension when you want to run the companion app without an
 active editor session.
 
+## Prerequisites
+
+Node.js v18 or later.
+
 ## How to run
 
 ```bash
 npm install
-npm run build
+npm run build    # compiles TypeScript to ./dist/
 npm start        # listens on ws://localhost:8787
 ```
 

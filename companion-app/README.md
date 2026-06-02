@@ -12,19 +12,24 @@ pixel-art sprite.
 - No editor-specific assumptions in state or rendering logic.
 - No protocol changes; consumes v1 as a pure consumer.
 
+## Prerequisites
+
+Godot 4.x — download the binary from [godotengine.org](https://godotengine.org/download). No installer required; the binary runs as-is.
+
 ## How to run
 
-1. Open `companion-app/` in Godot 4.x.
-2. Run the scene (`main.gd` is the entry point).
-3. The app connects to `ws://localhost:8787` automatically and reconnects every 5s on disconnect.
-
-Start either the editor extension or the mock event server first so there is something to connect to.
+1. Start the mock event server or the editor extension so there is something to connect to.
+2. Open `companion-app/` in Godot 4.x.
+3. Press **F5** to run the scene — `src/main.tscn` is the main scene.
+4. The app connects to `ws://localhost:8787` automatically and reconnects every 5s on disconnect.
+5. Incoming events appear in the **Output** panel at the bottom of the editor.
 
 ## File structure
 
 ```
 src/
-  main.gd                  Entry point; wires client, validator, state machine, and renderer
+  main.tscn                Main scene (Godot entry point)
+  main.gd                  Root script; wires client, validator, state machine, and renderer
   transport/
     websocket_client.gd    WebSocketPeer wrapper; signals: connected, disconnected, message_received
   protocol/

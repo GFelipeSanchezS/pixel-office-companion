@@ -37,22 +37,35 @@ Renderers are pure consumers. The editor extension never receives data.
 - Protocol v1 is immutable; new versions require a new schema file and versioned handling in both the extension and the app.
 - Both the extension and the mock server connect to / listen on `ws://localhost:8787`.
 
+## Prerequisites
+
+- **Node.js** v18 or later — for the editor extension and mock event server
+- **Godot 4.x** — for the companion app; download the binary from [godotengine.org](https://godotengine.org/download)
+- **VS Code** or **Cursor** — to use the editor extension
+
 ## Getting Started
 
-**Run with real editor events:**
-
-1. Install the editor extension in VS Code or Cursor.
-2. Open the companion app in Godot 4.x and run the scene.
-3. Start coding — the companion reflects your activity.
-
-**Run with mock events (no editor required):**
+**Option A — with real editor events:**
 
 ```bash
-cd tools/mock-event-server
-npm install && npm run build && npm start
+# Terminal 1: build the extension
+cd editor-extension
+npm install && npm run compile
 ```
 
-Then open the companion app in Godot 4.x and run the scene.
+Then in VS Code, open the `editor-extension/` folder and press **F5** to launch an Extension Development Host. Open the companion app in Godot 4.x and press **F5** to run the scene. Start coding.
+
+**Option B — with mock events (no editor required):**
+
+```bash
+# Terminal 1: start the mock server
+cd tools/mock-event-server
+npm install && npm run build && npm start
+
+# Terminal 2: open Godot and run the scene
+```
+
+Open `companion-app/` in Godot 4.x and press **F5**. Events from the mock server appear in the Godot Output panel.
 
 ## Build Commands
 
@@ -60,15 +73,15 @@ Then open the companion app in Godot 4.x and run the scene.
 ```bash
 cd editor-extension
 npm install
-npm run compile
+npm run compile          # builds to ./out/
 ```
 
 **Mock Event Server:**
 ```bash
 cd tools/mock-event-server
 npm install
-npm run build
-npm start
+npm run build            # compiles to ./dist/
+npm start                # listens on ws://localhost:8787
 ```
 
 **Companion App:** Open `companion-app/` in Godot 4.x. No CLI build.

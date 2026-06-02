@@ -46,10 +46,20 @@ src/
 | `outcome.test_pass` | Test task exits with code 0 |
 | `outcome.test_fail` | Test task exits with non-zero code |
 
-## Build
+## Prerequisites
+
+- Node.js v18 or later
+- VS Code v1.80 or later (or Cursor)
+
+## Build and run
 
 ```bash
 npm install
 npm run compile        # one-shot build to ./out/
-npm run vscode:prepublish  # production build
+```
+
+To run the extension during development, open the `editor-extension/` folder in VS Code and press **F5**. This launches an Extension Development Host — a second VS Code window with the extension loaded. Any file edits in that window emit events to `ws://localhost:8787`.
+
+```bash
+npm run vscode:prepublish  # production build before packaging
 ```
