@@ -113,5 +113,6 @@ companion-app/           Godot 4.x application
 
 MVP foundation complete. Visuals and animation in progress.
 
+See [ROADMAP.md](ROADMAP.md) for what is done and what comes next.
 See [KNOWN_LIMITATIONS.md](KNOWN_LIMITATIONS.md) for deliberate compromises and deferred features.
 See [ART_GUIDE.md](ART_GUIDE.md) for instructions on creating and importing art assets.
