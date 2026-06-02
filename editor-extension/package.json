@@ -14,7 +14,7 @@
   ],
   "main": "./out/extension.js",
   "scripts": {
-    "compile": "tsc --outDir out --module commonjs --target es2020 --lib es2020 --rootDir src --esModuleInterop --strict",
+    "compile": "tsc",
     "vscode:prepublish": "npm run compile"
   },
   "dependencies": {

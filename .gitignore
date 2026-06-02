@@ -1,10 +1,9 @@
 # TypeScript build outputs
-editor-extension/out/
-tools/mock-event-server/dist/
+out/
+dist/
 
 # Dependencies
-editor-extension/node_modules/
-tools/mock-event-server/node_modules/
+node_modules/
 
 # Godot 4.x generated files
 companion-app/.godot/

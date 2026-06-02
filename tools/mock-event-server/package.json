@@ -5,7 +5,7 @@
   "type": "commonjs",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc --outDir dist --module commonjs --target es2020 --lib es2020 --rootDir src --esModuleInterop --strict",
+    "build": "tsc",
     "start": "node dist/server.js"
   },
   "dependencies": {
