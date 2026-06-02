@@ -10,7 +10,7 @@ type TimelineEntry = {
 export type Timeline = TimelineEntry[];
 
 const schemaPath = resolve(__dirname, "../../..", "protocol/schema/event.v1.json");
-const timelinePath = resolve(__dirname, "timelines/basic.json");
+const timelinePath = resolve(__dirname, "../src/timelines/basic.json");
 
 export function loadTimeline(): Timeline {
   const schema = JSON.parse(readFileSync(schemaPath, "utf8"));
