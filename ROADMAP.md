@@ -51,7 +51,17 @@ open companion app in Godot.
 Replace the fixed `"medium"` intensity with a real rolling-window calculation
 in `typingSensor.ts`. See [KNOWN_LIMITATIONS.md](KNOWN_LIMITATIONS.md).
 
-### 8. Polish
+### 8. First release
+
+Once art, real-world testing, and Windows testing are done:
+- Bump version in `editor-extension/package.json`
+- Set correct publisher ID in `editor-extension/package.json`
+- Package the `.vsix` and export Godot executables for Windows, Linux, macOS
+- Publish a GitHub release with all artifacts
+
+See [RELEASING.md](RELEASING.md) for the full process.
+
+### 9. Polish
 - Tune animation FPS and decay timings against real usage
 - Tune rush worker dispatch threshold (currently all 4 desk workers must be busy)
 - Consider ambient sounds (optional)

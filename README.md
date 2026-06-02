@@ -6,6 +6,26 @@ as a cozy pixel-art office.
 This is **not** a productivity tool.
 It reflects *state*, not content.
 
+---
+
+## Installation
+
+### From a release (recommended)
+
+1. Go to the [Releases page](../../releases) and download the latest release for your platform.
+2. **Companion app** — extract the archive and run the executable directly. No installer needed.
+3. **Editor extension** — in VS Code, open the Extensions panel → `···` menu → **Install from VSIX** → select the downloaded `.vsix` file.
+4. Launch the companion app, then open VS Code and start coding.
+
+The companion app connects to the extension automatically over a local WebSocket.
+It reconnects on its own if either side restarts.
+
+### From source
+
+See [Getting Started](#getting-started) below.
+
+---
+
 ## Architecture
 
 The system is split into independent layers with strict boundaries:
@@ -116,3 +136,4 @@ MVP foundation complete. Visuals and animation in progress.
 See [ROADMAP.md](ROADMAP.md) for what is done and what comes next.
 See [KNOWN_LIMITATIONS.md](KNOWN_LIMITATIONS.md) for deliberate compromises and deferred features.
 See [ART_GUIDE.md](ART_GUIDE.md) for instructions on creating and importing art assets.
+See [RELEASING.md](RELEASING.md) for instructions on building and publishing a release.
